@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { UploadComponent } from "./components/Uploadcomponent/Upload.component";
 
-function App() {
+export const  App = () =>  {
+  const [fileJson, setFileJson] = useState(null);
+
+  /**
+   * Salva os dados do arquivo selecionado em uma variável para enviar ao backend
+   * @param evt Dados enviados pelo component UploadComponent para o component App contendo os dados do arquivo selecionado
+   * 
+   */
+  const saveFile = (evt: any) => {
+    setFileJson(evt);
+  };
+
+  /**
+   * Envia os dados ao backend (sem implementação, dica: Usar fetch para fazer um post no backend com o fileJson no body)
+   * @param evt Evento de click no botão
+   */
+  const sendFile = (evt:any) =>{
+    evt.preventDefault();
+    console.log(fileJson);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Atenção para o parâmetro acceptTypes que permite selecionar o tipo do documento aceito
+          caso não queria limitar os tipos é só apagar o parâmetro, passar vazio ou passar quantos quiser... */}
+      <UploadComponent
+        onChage={saveFile}
+        acceptTypes={[".pdf"]}
+      ></UploadComponent>
+      <button onClick={sendFile}>
+        Enviar
+      </button>
     </div>
   );
 }
-
-export default App;

@@ -1,0 +1,51 @@
+/* Olhar o seletor :root contido em App.css para ver as variáveis de cor */
+
+
+#uploadcomponent {
+  border: 1px solid var(--color-primary, blue);
+  width: inherit;
+  border-radius: 3px;
+  margin: 8px;
+  /* height: 200px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-primary, blue);
+  align-items: center;
+}
+
+#uploadcomponent button {
+  width: 95%;
+  padding: 8px;
+  margin: 8px;
+  color: var(--color-primary-contrast, white);
+  background: var(--color-primary, blue);
+  border: unset;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+#uploadcomponent button:active {
+  transform: scale(0.98);
+}
+
+#uploadcomponent button:hover {
+  filter: brightness(1.2);
+}
+
+#uploadcomponent .errortype{
+  font-size: 12px;
+  margin-top: 20px;
+  text-align: center;
+  background-color: var(--color-danger, red);
+  color: var(--color-primary-contrast, white);
+  padding: 4px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#uploadcomponent .filename {
+  font-size: 12px;
+  margin-top: 20px;
+  text-align: center;
+}
